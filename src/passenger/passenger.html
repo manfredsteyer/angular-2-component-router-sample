@@ -1,0 +1,74 @@
+<div>
+
+    <h4>Select Passenger</h4>
+    <hr />
+    
+    <div>
+        <form name="form" role="form">
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input  
+                       ng-model="passenger.nameFilter" class="form-control" placeholder="Last Name" />
+            </div>
+
+            <div class="form-group">
+                <label for="passengerNrFilter">Passenger-No.</label>
+                
+                <input  
+                       ng-model="passenger.numberFilter" class="form-control" placeholder="Passenger Number" />
+            </div>
+
+            <div class="form-group">
+                <input 
+                       type="button" 
+                       class="btn btn-default" 
+                       value="Suchen" 
+                       ng-click="passenger.load()" />
+            </div>
+
+        </form>
+    </div>
+
+    <div>
+
+
+        <div class="table-responsive">
+            <table 
+                ng-show="passenger.passengers.length > 0" class="table">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date of Birth</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+
+                <tbody>
+
+                    <tr ng-repeat="p in passenger.passengers" ng-class="{ info: passenger.selectedPassenger.id === p.id }">
+                        <td>{{p.vorname}}</td>
+                        <td>{{p.name}}</td>
+                        <td>{{p.geburtsdatum | date:'shortDate' }}</td>
+                        <td>{{p.passengerStatus}}</td>
+                        <td>
+                            <a href="javascript:void(0);" ng-click="passenger.select(p)">Select</a> |
+                            <a href="javascript:void(0);" ng-link="['../PassengerEdit',{id: p.id}]">Edit</a>
+
+                            <!--
+                                passenger: 17
+                                Template: #/passenger/passenger-edit/:id
+                                Link: #/passenger/passenger-edit/17
+                            -->
+
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+</div>

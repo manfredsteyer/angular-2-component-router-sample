@@ -1,0 +1,47 @@
+<div>
+
+    <h4>Select Flight</h4>
+    <hr />
+
+    <div class="form-group">
+            <label for="flightNummer">Flight-No.</label>
+            <input ng-model="flight.flightNoFilter" placeholder="Flight Number" class="form-control" />
+    </div>
+    
+    <div class="form-group">
+        <label for="Von">From</label>
+        <input ng-model="flight.flightFromFilter" placeholder="From" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Nach">to</label>
+        <input ng-model="flight.flightToFilter" placeholder="To" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="button" value="Suchen" ng-click="flight.load()" class="btn btn-default" />
+    </div>
+
+    <div>
+
+        <table ng-show="flight.flights.length > 0" class="table">
+            <tr>
+                <th>Id</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="f in flight.flights" ng-class="{ info: f.id == flight.selectedFlight.id }">
+                <td>{{f.id}}</td>
+                <td>{{f.abflugort}}</td>
+                <td>{{f.zielort}}</td>
+                <td>{{f.datum | date:short}}</td>
+                <td><a href="javascript:void(0)" ng-click="flight.select(f)">Select</a></td>
+            </tr>
+        </table>
+
+
+    </div>
+
+</div>

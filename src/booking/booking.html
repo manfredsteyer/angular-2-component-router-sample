@@ -1,0 +1,24 @@
+<div>
+
+    <h4>Book a flight</h4>
+    <hr />
+
+    <div>
+        <b>Passenger</b>
+    </div>
+    <p>
+        {{booking.selectedPassenger.vorname}} {{booking.selectedPassenger.name}}
+    </p>
+
+    <div>
+        <b>Flug</b>
+    </div>
+    <p>
+        <span ng-show="flugBuchen.selectedFlug != null">
+            {{booking.selectedFlight.id}} {{booking.selectedFlight.datum | date:'short'}}, {{booking.selectedFlight.abflugort}} - {{booking.selectedFlight.zielort}}
+        </span>
+    </p>
+
+    <input type="button" class="btn btn-default" value="Buchen" ng-click="flugBuchen.buchen()" />
+
+</div>
