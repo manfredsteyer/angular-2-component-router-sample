@@ -16,7 +16,7 @@ This sample shows how to use the new Component Router with AngularJS 1.5
 
 ## Getting started
 
-To getting started, you have to download the dependencies with npm and jspm and compile the sample with Babel via gulp
+To getting started, you have to download the dependencies with npm and jspm (sorry for this) and compile the sample with Babel via gulp
 
 ``
 npm install
