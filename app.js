@@ -58,15 +58,15 @@ app.component('passengerEdit', {
     }
 });
 
-class AppController {
- 
-    constructor($router) {
 
+// Alternative for Root-Component
+/*
+class AppController {
+    constructor($router) {
         $router.config([
           { path: '/', component: 'home', name: 'Home', useAsDefault: true },
           { path: '/bookFlight/...', component: 'bookFlight', name: 'BookFlight' }
         ]);
-
     }
 }
 
@@ -75,6 +75,24 @@ app.component('app', {
     controllerAs: 'app',
     templateUrl: "app.html"
 });
+*/
+
+class AppController {
+   
+}
+
+app.component('app', { 
+    controller: AppController,
+    controllerAs: 'app',
+    templateUrl: "app.html",
+    $routeConfig: [
+        { path: '/', component: 'home', name: 'Home', useAsDefault: true },
+        { path: '/bookFlight/...', component: 'bookFlight', name: 'BookFlight' }
+    ]
+});
+
+app.value('$routerRootComponent', 'app');
+
 
 app.controller('AppController', AppController);
 
